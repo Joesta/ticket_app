@@ -4,9 +4,9 @@ import 'package:ticket_app/base/res/styles/app_styles.dart';
 class AppDoubleText extends StatelessWidget {
   final String bigText;
   final String smallText;
-
+  final VoidCallback? onTap;
   const AppDoubleText(
-      {super.key, required this.bigText, required this.smallText});
+      {super.key, required this.bigText, required this.smallText, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,7 @@ class AppDoubleText extends StatelessWidget {
           style: AppStyles.headLine1,
         ),
         InkWell(
-          onTap: () {
-
-          },
+          onTap: onTap ?? _defaultFunction,
           child: Text(
             smallText,
             style: AppStyles.textStyle.copyWith(color: AppStyles.primaryColor),
@@ -29,4 +27,6 @@ class AppDoubleText extends StatelessWidget {
       ],
     );
   }
+
+  void _defaultFunction() {}
 }

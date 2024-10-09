@@ -9,16 +9,17 @@ import 'package:ticket_app/base/res/widgets/text_styler_sub.dart';
 
 class TicketView extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const TicketView({super.key, required this.ticket});
+  final bool canFitScreen;
+  const TicketView({super.key, required this.ticket, this.canFitScreen = false});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SizedBox(
       width: size.width * 0.85,
-      height: 202,
+      height: 201,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: canFitScreen ? 0 : 16),
         child: Column(
           children: [
             // blue part of the ticket
@@ -123,7 +124,6 @@ class TicketView extends StatelessWidget {
                       AppColumnTextLayout(topText: ticket['date'], bottomText: 'Date'),
                       AppColumnTextLayout(topText: ticket['departure_time'], bottomText: 'Departure time', crossAxisAlignment: CrossAxisAlignment.center),
                       AppColumnTextLayout(topText: '${ticket['number']}', bottomText: 'Number', crossAxisAlignment: CrossAxisAlignment.end,),
-
                     ],
                   ),
                 ],

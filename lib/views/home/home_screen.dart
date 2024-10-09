@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
-import 'package:ticket_app/modules/home/home_screen_page.dart';
+import 'home_screen_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
